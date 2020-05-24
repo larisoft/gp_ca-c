@@ -1,0 +1,268 @@
+package com.kwik.artisan.fragement;
+
+import android.Manifest;
+import android.app.Dialog;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.graphics.Typeface;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.AppCompatButton;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.webkit.MimeTypeMap;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.google.gson.Gson;
+import com.kwik.artisan.MLogger;
+import com.kwik.artisan.R;
+import com.kwik.artisan.Server.Server;
+import com.kwik.artisan.acitivities.HomeActivity;
+import com.kwik.artisan.custom.Utils;
+import com.kwik.artisan.pojo.User;
+import com.kwik.artisan.session.SessionManager;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.thebrownarrow.permissionhelper.FragmentManagePermission;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+
+import cz.msebera.android.httpclient.Header;
+import gun0912.tedbottompicker.TedBottomPicker;
+
+/**
+ * Created by android on 14/3/17.
+ */
+public class ProfileFragment extends FragmentManagePermission {
+    private View view;
+    private File imageFile;
+    private ProfileUpdateListener profileUpdateListener;
+    private UpdateListener listener;
+
+    private EditText input_email, input_age, input_last_employment, input_mobile,  input_sex, input_next_of_kin_address, input_guarantor_address, input_guarantor_occupation, input_marital_status, input_dob,
+            input_name, input_work_experience, input_2nd_last_employment, input_service1, input_service1_availability,
+            input_service2, input_service2_availability, input_next_of_kin_name, input_next_of_kin_phone, input_guarantor_naem, input_guarantor_phone,
+            input_spiritual_leader_name, input_spiritual_leader_phone, input_bank_account_no,  input_bank_name, input_bank_account_name, input_card_no, input_card_cvv;
+
+    private AppCompatButton btn_update, btn_change;
+    ImageView profile_pic;
+    private ProgressBar progressBar;
+    private SwipeRefreshLayout swipeRefreshLayout;
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        view = inflater.inflate(R.layout.profile_fragment, container, false);
+
+        ((HomeActivity) getActivity()).fontToTitleBar(getString(R.string.profile));
+        bindView();
+
+        btn_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View view = getActivity().getCurrentFocus();
+                if (view != null) {
+                    Utils.hideKeyboard(getActivity(), view);
+                }
+                if (Utils.haveNetworkConnection(getActivity())) {
+                    Server.setHeader(SessionManager.getKEY());
+                    if (validate()) {
+
+                        UpdateUser();
+                    }
+                } else {
+                    Toast.makeText(getActivity(), getString(R.string.network), Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+        profile_pic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int MyVersion = Build.VERSION.SDK_INT;
+                if (MyVersion > Build.VERSION_CODES.LOLLIPOP_MR1) {
+                    if (!checkIfAlreadyhavePermission()) {
+                        requestForSpecificPermission();
+                    } else {
+                        TedBottomPicker tedBottomPicker = new TedBottomPicker.Builder(getActivity())
+                                .setOnImageSelectedListener(new TedBottomPicker.OnImageSelectedListener() {
+                                    @Override
+                                    public void onImageSelected(Uri uri) {
+                                        // here is selected uri
+                                        imageFile = new File(uri.getPath());
+                                        String format = getMimeType(getActivity(), uri);
+                                        upload_pic(format);
+
+                                    }
+                                }).setOnErrorListener(new TedBottomPicker.OnErrorListener() {
+                                    @Override
+                                    public void onError(String message) {
+                                        Toast.makeText(getActivity(), getString(R.string.tryagian), Toast.LENGTH_LONG).show();
+                                        Log.d(getTag(), message);
+                                    }
+                                })
+                                .create();
+
+                        tedBottomPicker.show(getActivity().getSupportFragmentManager());
+                    }
+                } else {
+                    TedBottomPicker tedBottomPicker = new TedBottomPicker.Builder(getActivity())
+                            .setOnImageSelectedListener(new TedBottomPicker.OnImageSelectedListener() {
+                                @Override
+                                public void onImageSelected(Uri uri) {
+
+                                    imageFile = new File(uri.getPath());
+                                    String format = getMimeType(getActivity(), uri);
+                                    upload_pic(format);
+
+                                }
+                            }).setOnErrorListener(new TedBottomPicker.OnErrorListener() {
+                                @Override
+                                public void onError(String message) {
+                                    Toast.makeText(getActivity(), getString(R.string.tryagian), Toast.LENGTH_LONG).show();
+                                    Log.d(getTag(), message);
+                                }
+                            })
+                            .create();
+
+                    tedBottomPicker.show(getActivity().getSupportFragmentManager());
+                }
+            }
+        });
+        return view;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            profileUpdateListener = (ProfileUpdateListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement OnHeadlineSelectedListener");
+        }
+        try {
+            listener = (UpdateListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement OnHeadlineSelectedListener");
+        }
+    }
+
+    public void upload_pic(String type) {
+        progressBar.setVisibility(View.VISIBLE);
+        RequestParams params = new RequestParams();
+        if (imageFile != null) {
+            try {
+
+                if (type.equals("jpg")) {
+                    params.put("avatar", imageFile, "image/jpeg");
+                } else if (type.equals("jpeg")) {
+                    params.put("avatar", imageFile, "image/jpeg");
+                } else if (type.equals("png")) {
+                    params.put("avatar", imageFile, "image/png");
+                } else {
+                    params.put("avatar", imageFile, "image/gif");
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                Log.d("catch", e.toString());
+            }
+        }
+        Server.setHeader(SessionManager.getKEY());
+        params.put("user_id", SessionManager.getUserId());
+
+        Server.post(Server.UPDATE, params, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                Log.e("success", response.toString());
+                try {
+                    if (response.has("status") && response.getString("status").equalsIgnoreCase("success")) {
+                        String url = response.getJSONObject("data").getString("avatar");
+
+                        try {
+                            Glide.with(getActivity()).load(url).apply(new RequestOptions().error(R.drawable.user_default)).into(profile_pic);
+                        } catch (Exception e) {
+
+                        }
+                        User user = SessionManager.getUser();
+                        user.setAvatar(url);
+                        Gson gson = new Gson();
+                        SessionManager.setUser(gson.toJson(user));
+                        profileUpdateListener.update(url);
+                        input_name.setText(user.getName());
+                        input_email.setText(user.getEmail());
+                        input_mobile.setText(user.getMobile());
+                        //input_vehicle.setText(user.getVehicle_info());
+                    } else {
+                        progressBar.setVisibility(View.GONE);
+                        if (response.has("data")) {
+                            Toast.makeText(getActivity(), response.getString("data"), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                } catch (JSONException e) {
+                    progressBar.setVisibility(View.GONE);
+                    Toast.makeText(getActivity(), getString(R.string.error_occurred), Toast.LENGTH_LONG).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(getActivity(), getString(R.string.error_occurred), Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
+
+    private void getUserInfoOnline() {
+        RequestParams params = new RequestParams();
+        params.put("user_id", SessionManager.getUserId());
+        User user = SessionManager.getUser();
+
+        Glide.with(getActivity()).load(user.getAvatar()).apply(new RequestOptions().error(R.drawable.user_default)).into(profile_pic);
+        input_name.setText(user.getName());
+        input_email.setText(user.getEmail());
+     //   input_vehicle.setText(user.getVehicle_info());
+        input_mobile.setText(user.getMobile());
+     //   input_paypalId.setText(user.getPaypal_id());
+        Server.setHeader(user.getKey());
+        Server.get(Server.GET_PROFILE, params, new JsonHttpResponseHandler() {
+
+            @Override
+            public void onStart() {
+                super.onStart();
+
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+      

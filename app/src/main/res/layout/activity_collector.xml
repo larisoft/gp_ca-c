@@ -1,0 +1,195 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+  
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="10dip"
+        android:orientation="vertical"
+        android:id="@+id/main_container"
+        android:layout_height="wrap_content"> 
+        
+        
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/firstPanel"
+       android:paddingBottom="10dip"
+       android:orientation="horizontal">
+       
+       
+       <TextView
+           android:id="@+id/username"
+           android:layout_width="wrap_content" 
+           android:padding ="10dip"
+           android:textColor="@color/realblack"
+           android:layout_height="wrap_content"
+           android:text="username"/>
+       
+       
+       
+       <Spinner
+           android:id="@+id/totalUnitLoad"
+           android:entries="@array/Tunitload" 
+           android:paddingLeft="10dip"
+           android:textSize="12sp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"/>
+       
+       
+       <Spinner
+           android:id="@+id/semester"
+           android:layout_width="fill_parent"  
+           android:paddingLeft="10dip"
+           android:textSize="12sp"
+           android:layout_height="wrap_content"
+           android:entries="@array/semesters"/>
+
+</LinearLayout>
+
+   
+    <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/secondPanel"
+       android:paddingBottom="10dip"
+       android:orientation="horizontal">
+       
+       
+       <Button
+           android:id="@+id/help"
+            android:paddingLeft="15dip"
+           android:layout_width="wrap_content" 
+           android:layout_height="wrap_content"
+           android:onClick="info"
+           android:text="Help"/>
+       
+        
+       <Spinner
+           android:id="@+id/session"
+           android:entries="@array/sessions"  
+            android:paddingLeft="15dip" 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"/>
+       
+       
+       <Spinner
+           android:id="@+id/level"
+           android:layout_width="fill_parent" 
+           android:textSize="13sp"
+            android:paddingLeft="15dip"
+           android:layout_height="wrap_content"
+           android:inputType="number"
+           android:entries="@array/levels"/>
+
+</LinearLayout>
+  
+    
+    
+    <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:paddingBottom="10dip"
+       android:id="@+id/labels"
+       android:orientation="horizontal">
+       
+       
+       <TextView
+            android:paddingLeft="5dip"
+             android:textColor="@color/realblack"
+           android:layout_width="wrap_content" 
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:text="Courses:"/>
+       
+       
+         <TextView
+             android:textColor="@color/realblack"
+           android:layout_width="wrap_content" 
+           android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+           android:text="UnitLoads:"/>
+        
+       
+       <TextView
+           android:paddingLeft="5dip"
+           android:textColor="@color/realblack"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:text="Grades:"/>
+
+</RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/rows"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:id="@+id/bottom_controls"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+          <ImageView android:id="@+id/add_row"
+                android:layout_gravity="left"
+                android:src="@mipmap/plus"
+                android:layout_width="50px"
+              android:layout_marginLeft="10dp"
+                android:layout_alignParentLeft="true"
+                android:onClick="add"
+              android:layout_marginTop="10dp"
+              android:layout_marginBottom="15dp"
+                android:layout_height="50px"/>
+
+        <ImageView android:id="@+id/remove_row"
+            android:onClick="remove"
+            android:layout_width="50px"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/minus"
+            android:paddingBottom="1dp"
+            android:layout_height="50px"
+            android:layout_alignParentRight="true" />
+
+        </RelativeLayout>
+
+
+              <Button android:id="@+id/calculate"
+                  android:text="Calculate"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+    </LinearLayout>
+    
+     
+    
+    
+</ScrollView>

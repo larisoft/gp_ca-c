@@ -1,0 +1,29 @@
+ 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@color/maroon"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="0.38"
+        android:clickable="true"
+        android:padding="10dip"
+        android:paddingRight="100dip"
+        android:text="Semester GP"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/headerHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:onClick="info"
+        android:padding="10dip"
+        android:paddingLeft="2dip"
+        android:text="Help"
+        android:textColor="@color/white" />
+
+</LinearLayout>

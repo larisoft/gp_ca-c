@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="10dip"
+    tools:context="com.larysoft.casebook.Timer">
+    
+    <TextView
+            android:text="Set Alarm"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="20dip" 
+            android:layout_width="wrap_content"
+             android:textColor="@color/realblack"  
+            android:paddingBottom="20dip"
+            android:textSize="25sp"
+            android:id="@+id/alarmText"
+            android:layout_height="wrap_content"/>
+         
+         
+   
+    <LinearLayout 
+    android:layout_below="@+id/alarmText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:padding="20dip">
+
+
+
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+           <TextView
+                   android:text="Alarm:"
+                   android:id="@+id/hourLabel"
+                   android:textColor="@color/realblack"
+                   android:padding="20dip"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+
+
+
+           <EditText
+    	    android:id="@+id/alarmHour"
+    	    android:hint="HH:MM"
+    	    android:layout_toRightOf="@+id/hourLabel"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"/>
+
+                   <Spinner
+    	    android:id="@+id/AM"
+    	    android:entries="@array/am"
+    	    android:layout_toRightOf="@+id/alarmHour"
+    	    android:layout_width="wrap_content"
+    	    android:textSize="10sp"
+    	    android:paddingBottom="20dip"
+    	    android:layout_height="wrap_content"/>
+
+              </RelativeLayout>
+   <LinearLayout
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+
+  <CheckBox
+        android:id="@+id/exclude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+  <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:textColor="@color/realblack"
+      android:text="Don't Ring on Weekends"/>
+
+      </LinearLayout>
+      <Button
+          android:id="@+id/saveAlarm"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:enabled="false"
+          android:text="Save"/>
+
+        <Button
+        android:id="@+id/cancelAlarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+            android:enabled="false"
+        android:text="Cancel alarm" />
+
+
+         </LinearLayout>
+         
+      
+    </RelativeLayout>

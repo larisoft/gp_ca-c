@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.example.mygp.MainActivity">
+
+    
+    
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="30dip"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:id="@+id/label"
+            android:textStyle="bold"
+            android:textColor="@color/realblack"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="30dip"
+            android:paddingBottom="5dip"
+            android:text="GP Calculator"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:id="@+id/school_name"
+            android:textColor="@color/maroon"
+            android:layout_gravity="center_horizontal"
+            android:padding="5dip"
+            android:text="@string/school"/>
+
+        
+       <Button
+            android:id="@+id/once"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="One Semeseter"/>
+        
+        
+        <Button
+            android:id="@+id/cumulative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cumulative Calc"/>
+          
+          
+        <Button 
+            android:id="@+id/alarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Alarm"/>
+        
+         <Button
+             android:id="@+id/advert"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="About larisoft"/>
+        
+          
+        </LinearLayout>
+
+
+
+    <!--
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/ad"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        ads:backgroundColor="@color/maroon"
+        ads:primaryTextColor="@color/gold"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:addUnitId="@string/publisherId"
+        ads:secondaryTextColor="@color/white"/> -->
+
+    </RelativeLayout>
+

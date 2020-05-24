@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    
+    <color name ="black"> #B3000000</color>
+    <color name ="white"> #FFFFFF</color>
+    <color name ="sgreen"> #2E8B57</color>
+    <color name ="gold"> #B3FFD700</color>
+    <color name ="realblack"> #000000</color>
+    <color name ="twhite"> #B3FFFFFF</color>
+    <color name = "Lgreen"> #3CB371 </color>
+    <color name="red">  #DC143C</color>
+    <color name= "rred">#B3DC143C  </color>
+    
+<color name="transparent">#00000000</color>
+</resources>
+

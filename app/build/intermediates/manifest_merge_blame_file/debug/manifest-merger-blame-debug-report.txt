@@ -1,0 +1,145 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.pa.gp_calc"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:4:5-66
+11-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+12-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:5:5-80
+12-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:5:22-78
+13    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+13-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:6:5-78
+13-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:6:22-76
+14    <uses-permission android:name="android.permission.READ_CONTACTS" />
+14-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:7:5-71
+14-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:7:22-69
+15
+16    <application
+16-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:11:5-74:19
+17        android:allowBackup="true"
+17-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:12:9-35
+18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+18-->[androidx.core:core:1.1.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\65288fada49b0b6c64631011b3fa4627\core-1.1.0\AndroidManifest.xml:24:18-86
+19        android:debuggable="true"
+20        android:icon="@mipmap/icon"
+20-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:13:9-36
+21        android:label="@string/app_name"
+21-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:14:9-41
+22        android:roundIcon="@mipmap/ic_launcher_round"
+22-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:15:9-54
+23        android:supportsRtl="true"
+23-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:16:9-35
+24        android:testOnly="true"
+25        android:theme="@style/MyTheme" >
+25-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:17:9-39
+26        <activity
+26-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:21:9-27:20
+27            android:name="com.pa.gp_calc.MainActivity"
+27-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:21:19-61
+28            android:label="@string/app_name" >
+28-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:22:13-45
+29            <intent-filter>
+29-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:23:13-26:29
+30                <action android:name="android.intent.action.MAIN" />
+30-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:24:17-69
+30-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:24:25-66
+31
+32                <category android:name="android.intent.category.LAUNCHER" />
+32-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:25:17-77
+32-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:25:27-74
+33            </intent-filter>
+34        </activity>
+35        <activity
+35-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:29:9-33:20
+36            android:name="com.pa.gp_calc.Collector"
+36-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:30:13-52
+37            android:label="@string/title_activity_collector"
+37-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:31:13-61
+38            android:theme="@style/MyTheme" >
+38-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:32:13-43
+39        </activity>
+40        <activity
+40-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:34:9-39:20
+41            android:name="com.pa.gp_calc.SpokesMan"
+41-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:35:13-52
+42            android:label="@string/title_activity_spokes_man"
+42-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:36:13-62
+43            android:theme="@style/MyTheme"
+43-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:37:13-43
+44            android:windowSoftInputMode="stateHidden" >
+44-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:38:13-54
+45        </activity>
+46        <activity
+46-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:40:9-44:20
+47            android:name="com.pa.gp_calc.Cumulative"
+47-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:41:13-53
+48            android:label="@string/title_activity_cumulative"
+48-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:42:13-62
+49            android:theme="@style/MyTheme" >
+49-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:43:13-43
+50        </activity>
+51        <activity
+51-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:45:9-49:20
+52            android:name="com.pa.gp_calc.SemestersActivity"
+52-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:46:13-60
+53            android:label="@string/title_activity_semesters"
+53-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:47:13-61
+54            android:theme="@style/MyTheme" >
+54-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:48:13-43
+55        </activity>
+56        <activity
+56-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:50:9-54:20
+57            android:name="com.pa.gp_calc.WhatIf"
+57-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:51:13-49
+58            android:label="@string/title_activity_what_if"
+58-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:52:13-59
+59            android:theme="@style/MyTheme" >
+59-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:53:13-43
+60        </activity>
+61        <activity
+61-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:55:9-59:20
+62            android:name="com.pa.gp_calc.AlarmActivity"
+62-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:56:13-56
+63            android:label="@string/title_activity_alarm"
+63-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:57:13-57
+64            android:theme="@style/MyTheme" >
+64-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:58:13-43
+65        </activity>
+66        <activity
+66-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:60:9-64:20
+67            android:name="com.pa.gp_calc.Timer"
+67-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:61:13-48
+68            android:label="@string/title_activity_alarm"
+68-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:62:13-57
+69            android:theme="@style/MyTheme" >
+69-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:63:13-43
+70        </activity>
+71        <activity
+71-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:65:9-68:74
+72            android:name="com.pa.gp_calc.StartUp"
+72-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:66:13-50
+73            android:label="My Gp"
+73-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:67:13-34
+74            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+74-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:68:13-71
+75        <activity
+75-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:69:9-73:20
+76            android:name="com.pa.gp_calc.Settings"
+76-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:70:13-51
+77            android:label="@string/title_activity_settings"
+77-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:71:13-60
+78            android:theme="@style/MyTheme" >
+78-->C:\Users\HP\gp_calc\app\src\main\AndroidManifest.xml:72:13-43
+79        </activity>
+80    </application>
+81
+82</manifest>

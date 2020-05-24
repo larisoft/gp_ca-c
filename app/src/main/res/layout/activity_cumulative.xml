@@ -1,0 +1,68 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context="com.example.mygp.Cumulative">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="20dp"
+        android:id="@+id/container"
+        android:layout_gravity="center_vertical"
+        android:layout_height="match_parent">
+        
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/currentGP"
+        android:text="Current"
+        android:textSize="60sp"
+        android:textColor="@color/realblack"/> 
+    
+    <TextView
+        android:id="@+id/explain"
+        android:layout_below="@+id/currentGP"
+        android:layout_width="match_parent"
+        android:padding='20dip'
+        android:textColor="@color/realblack"
+        android:text="semesters...textVies."
+        android:layout_height="wrap_content"/>
+    
+     
+    <Button
+        android:layout_width="match_parent"  
+        android:layout_below="@+id/explain"
+        android:layout_centerHorizontal="true" 
+        android:id="@+id/newSemester"
+        android:layout_height="wrap_content"
+        
+        android:text="New Semester"/>
+    
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View/Edit Existing"
+        android:layout_below="@+id/newSemester"
+        android:id="@+id/view"/>
+    
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="What if?"
+        android:layout_below="@+id/view"
+        android:id="@+id/whatIf"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clear This GP"
+            android:layout_below="@+id/whatIf"
+            android:onClick="clear"
+            android:id="@+id/clear"/>
+    </RelativeLayout>
+
+</ScrollView>

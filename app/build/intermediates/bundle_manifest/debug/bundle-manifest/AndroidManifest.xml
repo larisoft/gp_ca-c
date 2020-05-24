@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pa.gp_calc"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="29" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/MyTheme" >
+        <activity
+            android:name="com.pa.gp_calc.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.pa.gp_calc.Collector"
+            android:label="@string/title_activity_collector"
+            android:theme="@style/MyTheme" >
+        </activity>
+        <activity
+            android:name="com.pa.gp_calc.SpokesMan"
+            android:label="@string/title_activity_spokes_man"
+            android:theme="@style/MyTheme"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.pa.gp_calc.Cumulative"
+            android:label="@string/title_activity_cumulative"
+            android:theme="@style/MyTheme" >
+        </activity>
+        <activity
+            android:name="com.pa.gp_calc.SemestersActivity"
+            android:label="@string/title_activity_semesters"
+            android:theme="@style/MyTheme" >
+        </activity>
+        <activity
+            android:name="com.pa.gp_calc.WhatIf"
+            android:label="@string/title_activity_what_if"
+            android:theme="@style/MyTheme" >
+        </activity>
+        <activity
+            android:name="com.pa.gp_calc.AlarmActivity"
+            android:label="@string/title_activity_alarm"
+            android:theme="@style/MyTheme" >
+        </activity>
+        <activity
+            android:name="com.pa.gp_calc.Timer"
+            android:label="@string/title_activity_alarm"
+            android:theme="@style/MyTheme" >
+        </activity>
+        <activity
+            android:name="com.pa.gp_calc.StartUp"
+            android:label="My Gp"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.pa.gp_calc.Settings"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/MyTheme" >
+        </activity>
+    </application>
+
+</manifest>

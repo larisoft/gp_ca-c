@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/white"
+    android:padding="15dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="@string/about"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="For free computer security tips, tutorials, and urgent IT Information..."
+        android:textColor="@color/realblack"
+        android:layout_margin="5dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:background="@color/facebook_blue"
+        android:text="like larisoft on Facebook"
+        android:textColor="@color/white"
+        android:layout_margin='4dp'
+        android:padding="4dp"
+        android:layout_height="wrap_content"
+        android:onClick="facebook_like"/>
+
+
+
+</LinearLayout>

@@ -1,0 +1,715 @@
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/swipe_refresh"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbarThumbVertical="@android:color/transparent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_10">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_pic"
+                android:layout_width="@dimen/one_twenty"
+                android:layout_height="@dimen/one_twenty"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/five"
+                android:src="@drawable/icon"
+                app:civ_border_color="@color/red"
+                app:civ_border_overlay="false"
+                app:civ_border_width="2dp" />
+
+            <ProgressBar
+
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/fourty_five"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/profile_pic"
+                android:layout_marginTop="@dimen/margin_10">
+
+                <LinearLayout
+                    android:id="@+id/parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/bio_data"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bio Data"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp"/>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Your Name">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/input_name"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="EMAIL">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/input_email"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="MOBILE NUMBER">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/input_mobile"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Sex">
+
+
+                        <Spinner
+                            android:id="@+id/input_sex"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:entries="@array/sex"
+                            android:prompt="Select Sex"
+                            android:inputType='number'
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Marital Status">
+
+
+                        <Spinner
+                            android:id="@+id/marital_status"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:entries="@array/marital_staus"
+                            android:textStyle="normal"
+                            android:prompt="Select Marital Status"
+                            android:theme="@style/EditText.Login" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Date of Birth">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/dob"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:inputType="date"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/employment_data"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Employment Data"
+                        android:textStyle="bold"
+                        android:layout_marginTop="30dp" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Work Experience (Years)">
+
+                        <Spinner
+                            android:id="@+id/work_experience"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbarStyle="insideInset"
+                            android:scrollbars="vertical"
+                            android:prompt="Select experience level"
+                            android:entries="@array/work_experience"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:scrollHorizontally="false"/>
+
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Last Place of Employment 1">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/input_employment1"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Last Place of Employment 1">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/input_employment2"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"             android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Service You can render (1)">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/service1"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"     android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+
+
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Availability for Service 1">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/availability_service1"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"     android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:prompt="Select availability"
+                            android:entries="@array/availability"
+                            android:theme="@style/EditText.Login" />
+
+                    </Spinner>
+
+
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Service You can render (2)">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/service2"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"   android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+
+
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Availability for Service 2">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/availability_service2"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:padding="@dimen/margin_10"
+                            android:entries="@array/availability"
+                            android:prompt="Select availability"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/security_data"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Security Data"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_marginTop="30dp" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Next of Kin Name">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/next_of_kin"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Next of Kin Address">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/next_of_kin_address"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Next of Kin Phone Number">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/next_of_kin_phone_number"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Gurantor's Name">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/guarantor_name"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+
+
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Guarantor Address">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/guarantor_address"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:padding="@dimen/margin_10"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Guarantor Phone Number">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/guarantor_phone_number"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+
+
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Guarantor Occupation">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/guarantor_occupation"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Spiritual Leader Full Name">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/spiritual_leader"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Spiritual Leader Phone Number">
+
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/spiritual_leader_phone_number"
+                            style="@style/EditText.Login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/margin_10"
+                            android:textColor="@color/black"
+                            android:textStyle="normal"
+                            android:theme="@style/EditText.Login" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+                </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/bank_account_data"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:text="Bank Details"
+                            android:layout_marginTop="30dp" />
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Account Number">
+
+
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/bank_account_number"
+                                style="@style/EditText.Login"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:padding="@dimen/margin_10"
+                                android:textColor="@color/black"
+                                android:textStyle="normal"
+                                android:theme="@style/EditText.Login" />
+
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Account Name">
+
+
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/bank_account_name"
+                                style="@style/EditText.Login"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:padding="@dimen/margin_10"
+                                android:textColor="@color/black"
+                                android:textStyle="normal"
+                                android:theme="@style/EditText.Login" />
+                        </android.support.design.widget.TextInputLayout>
+
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Bank">
+
+
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/bank_name"
+                                style="@style/EditText.Login"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/margin_10"
+                                android:textColor="@color/black"
+                                android:textStyle="normal"
+                                android:theme="@style/EditText.Login" />
+                        </android.support.design.widget.TextInputLayout>
+
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="ATM Card No">
+
+
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/card_no"
+                                style="@style/EditText.Login"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/margin_10"
+                                android:textColor="@color/black"
+                                android:textStyle="normal"
+                                android:theme="@style/EditText.Login" />
+                        </android.support.design.widget.TextInputLayout>
+
+
+
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Card CVV">
+
+
+                            <android.support.design.widget.TextInputEditText
+                                android:id="@+id/card_cvv"
+                                style="@style/EditText.Login"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/margin_10"
+                                android:textColor="@color/black"
+                                android:textStyle="normal"
+                                android:theme="@style/EditText.Login" />
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/btn_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/parent"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin_10"
+                        android:layout_weight="1"
+                        android:background="@drawable/ripple_effect"
+                        android:text="@string/update"
+                        android:textColor="@color/white" />
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/btn_change"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/parent"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin_10"
+                        android:layout_weight="1"
+                        android:background="@drawable/ripple_effect"
+                        android:text="@string/change_password"
+                        android:textColor="@color/white"/>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+</android.support.v4.widget.SwipeRefreshLayout>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  

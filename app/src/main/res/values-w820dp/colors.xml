@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name ="black">#B3000000</color>
+    <color name ="white">#FFFFFF</color>
+    <color name ="sgreen">#2E8B57</color>
+    <color name ="gold">#B3FFD700</color>
+    <color name ="realblack">#000000</color>
+    <color name ="twhite">#B3FFFFFF</color>
+    <color name = "Lgreen">#006400</color>
+    <color name="red">#DC143C</color>
+    <color name= "rred">#B3DC143C</color>
+    <color name="maroon">#800000</color>
+    <color name="wood">#F5F5DC</color>
+    <color name="gray">#808080</color>
+    <color name="facebook_blue">#3b5999</color>
+    <color name="facebook_light_blue">#3b579d</color>
+    <color name="transparent">#00000000</color>
+    <color name="dark_blue">#0000A0</color>
+    <color name="blue">#0033FF</color>
+</resources>
